@@ -31,6 +31,9 @@ class SBall:
     def update(self):
         self.y -= random.randint(5, 20)
 
+        if self.y < 60:
+            self.y = 60
+
     def draw(self):
         self.image.draw(self.x, self.y)
 

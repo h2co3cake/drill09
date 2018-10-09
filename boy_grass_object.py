@@ -38,7 +38,18 @@ class SBall:
         self.image.draw(self.x, self.y)
 
 class BBall:
-    pass
+    def __init__(self):
+        self.x, self.y = random.randint(100, 700), 599
+        self.image = load_image('ball41x41.png')
+
+    def update(self):
+        self.y -= random.randint(5, 20)
+
+        if self.y < 70:
+            self.y = 70
+
+    def draw(self):
+        self.image.draw(self.x, self.y)
 
 
 def handle_events():
@@ -64,6 +75,9 @@ grass = Grass()
 Sball = SBall()
 sballs = [SBall() for i in range(20 - t)]
 
+Bball = BBall()
+bballs = [BBall() for i in range(t)]
+
 
 running = True
 
@@ -76,6 +90,8 @@ while running:
         boy.update()
     for Sball in sballs:
         Sball.update()
+    for Bball in bballs:
+        Bball.update()
 
     clear_canvas()
 
@@ -84,6 +100,8 @@ while running:
         boy.draw()
     for Sball in sballs:
         Sball.draw()
+    for Bball in bballs:
+        Bball.draw()
 
     update_canvas()
 

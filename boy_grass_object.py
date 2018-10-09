@@ -29,7 +29,10 @@ class SBall:
         self.image = load_image('ball21x21.png')
 
     def update(self):
-        self.x -= random.randint(5, 20)
+        self.y -= random.randint(5, 20)
+
+    def draw(self):
+        self.image.draw(self.x, self.y)
 
 class BBall:
     pass
@@ -53,6 +56,9 @@ team = [Boy() for i in range(11)]
 
 grass = Grass()
 
+Sball = SBall()
+
+
 running = True
 
 # game main loop code
@@ -62,11 +68,15 @@ while running:
 
     for boy in team:
         boy.update()
+    Sball.update()
 
     clear_canvas()
+
     grass.draw()
     for boy in team:
         boy.draw()
+    Sball.draw()
+
     update_canvas()
 
     delay(0.05)

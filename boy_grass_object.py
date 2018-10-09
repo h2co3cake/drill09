@@ -57,6 +57,7 @@ team = [Boy() for i in range(11)]
 grass = Grass()
 
 Sball = SBall()
+sballs = [SBall() for i in range(20)]
 
 
 running = True
@@ -68,14 +69,16 @@ while running:
 
     for boy in team:
         boy.update()
-    Sball.update()
+    for Sball in sballs:
+        Sball.update()
 
     clear_canvas()
 
     grass.draw()
     for boy in team:
         boy.draw()
-    Sball.draw()
+    for Sball in sballs:
+        Sball.draw()
 
     update_canvas()
 

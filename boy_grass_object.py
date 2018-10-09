@@ -51,13 +51,15 @@ def handle_events():
 
 open_canvas()
 
+t = random.randint(5, 15)
+
 boy = Boy()
 team = [Boy() for i in range(11)]
 
 grass = Grass()
 
 Sball = SBall()
-sballs = [SBall() for i in range(20)]
+sballs = [SBall() for i in range(20 - t)]
 
 
 running = True
